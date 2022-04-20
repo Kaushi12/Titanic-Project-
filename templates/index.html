@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<center>
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Titanic Survival Prediction</h1>
+
+    <div class="form">
+        <form action="/predict" method="POST">
+            <label for="Pclass">Choose Passenger Class:</label>
+            <select name="Pclass" id="Pclass">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select><br>
+            <label for="Sex">Gender:</label>
+            <select name="Sex" id="Sex">
+                <option value="male">male</option>
+                <option value="female">female</option>
+            </select><br>
+            <label for="Age">Enter Age:</label>
+            <input type="number" name="Age" id="Age" placeholder="Age"><br>
+            <label for="SibSp">Choose Number of Siblings/Spouses Aboard:</label>
+            <select name="SibSp" id="SibSp">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="8">8</option>
+            </select><br>
+            <label for="Parch">Choose Number of Parents/Children Aboard:</label>
+            <select name="Parch" id="Parch">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select><br>
+            <label for="Fare">Enter Fare:</label>
+            <input type="number" name="Fare" id="Fare" placeholder="Fare">
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</div>
+<br>
+<h3 style="color:white;">
+    {{predict}}
+</h3>
+</center>
+
+{% endblock %}
